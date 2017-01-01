@@ -1,14 +1,16 @@
 <?php
-/**
- * CommonApi 
- * @author xuzongchao
- */
 namespace Superwechat\Core;
 
 use Superwechat\Core\AccessToken;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
+use Superchat\Core\Http;
 
+/**
+ * CommonApi
+ * 
+ * @author xuzongchao
+ */
 abstract class CommonApi {
 	/**
 	 * Http instance
@@ -64,7 +66,7 @@ abstract class CommonApi {
 	}
 	
 	/**
-	 *
+	 * accessTokenMiddleware
 	 */
 	protected function accessTokenMiddleware()
 	{
@@ -84,6 +86,9 @@ abstract class CommonApi {
         };
 	}
 	
+	/**
+	 * Register middleWare 
+	 */
 	public function regsiterMiddleWare()
 	{
 		$this->http->addMiddleWare($this->accessTokenMiddleware());
@@ -98,6 +103,11 @@ abstract class CommonApi {
 		return $this->accessToken;
 	}
 	
+	/**
+	 * Get Http
+	 * 
+	 * @return Http
+	 */
 	public function getHttp(){
 		if (is_null($this->http)) {
 			$this->http = new Http();
@@ -109,6 +119,11 @@ abstract class CommonApi {
 		return $this->http;
 	}
 	
+	/**
+	 * Set A http 
+	 * 
+	 * @param Http $http
+	 */
 	public function setHttp(Http $http){
 		$this->http = $http;
 	}

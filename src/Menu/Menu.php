@@ -4,7 +4,13 @@ namespace Superwechat\Menu;
 use Superwechat\Core\CommonApi;
 use Superwechat\Core\AccessToken;
 
-class Menu extends CommonApi{
+/**
+ * Class Menu
+ * 
+ * @author xuzongchao
+ */
+class Menu extends CommonApi
+{
 	const API_GET = "https://api.weixin.qq.com/cgi-bin/menu/get";
 	const API_CREATE = "https://api.weixin.qq.com/cgi-bin/menu/create";
 	const API_ADDCONDITION_CREATE = "https://api.weixin.qq.com/cgi-bin/menu/addconditional";
@@ -73,6 +79,9 @@ class Menu extends CommonApi{
 		return $this->parseJSON('get', [self::API_GET]);
 	}
 	
+	/**
+	 * Test
+	 */
 	public function test()
 	{
 		return $this->parseJSON('get', [self::API_MENU_TEST, $this->param]);
