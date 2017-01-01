@@ -1,5 +1,5 @@
 <?php
-namespace Superchat\Core;
+namespace Superwechat\Core;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Middleware;

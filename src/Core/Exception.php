@@ -1,5 +1,5 @@
 <?php
-namespace Superchat\Core;
+namespace Superwechat\Core;
 
 use Exception as BaseException;
 

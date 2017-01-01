@@ -1,5 +1,5 @@
 <?php
-namespace Superchat\Core;
+namespace Superwechat\Core;
 
 use Doctrine\Common\Cache\FilesystemCache;
 

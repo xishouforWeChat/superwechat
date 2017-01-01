@@ -1,8 +1,8 @@
 <?php
-namespace Superchat\Groups;
+namespace Superwechat\Groups;
 
-use Superchat\Core\CommonApi;
-use Superchat\Core\AccessToken;
+use Superwechat\Core\CommonApi;
+use Superwechat\Core\AccessToken;
 
 /**
  * Class Groups

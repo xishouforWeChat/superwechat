@@ -3,9 +3,9 @@
  * CommonApi 
  * @author xuzongchao
  */
-namespace Superchat\Core;
+namespace Superwechat\Core;
 
-use Superchat\Core\AccessToken;
+use Superwechat\Core\AccessToken;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 

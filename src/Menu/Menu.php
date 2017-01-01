@@ -1,8 +1,8 @@
 <?php
-namespace Superchat\Menu;
+namespace Superwechat\Menu;
 
-use Superchat\Core\CommonApi;
-use Superchat\Core\AccessToken;
+use Superwechat\Core\CommonApi;
+use Superwechat\Core\AccessToken;
 
 class Menu extends CommonApi{
 	const API_GET = "https://api.weixin.qq.com/cgi-bin/menu/get";
