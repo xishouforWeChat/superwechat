@@ -31,7 +31,7 @@ class Groups extends CommonApi
 	
 	
 	/**
-	 * Create A Groups
+	 * Create a group
 	 * 
 	 * @param array $groupArr
 	 * 
@@ -43,7 +43,7 @@ class Groups extends CommonApi
 	}
 	
 	/**
-	 * Update Group Name
+	 * Modify user group name
 	 * 
 	 * @param array $groupData
 	 */
@@ -53,7 +53,12 @@ class Groups extends CommonApi
 	}
 	
 	/**
-	 * 移动用户至分组
+	 * Mobile users to groups
+	 * 
+	 * @param string $openid
+	 * @param string $toGroupId
+	 * 
+	 * @return \EasyWeChat\Support\Collection
 	 */
 	public function memberUpdate( $openid,  $toGroupId)
 	{
@@ -61,7 +66,7 @@ class Groups extends CommonApi
 	}
 	
 	/**
-	 * 批量移动用户至分组
+	 * Batch mobile users to group
 	 * 
 	 * @param array $openidList
 	 * @param int $toGroupId
@@ -72,7 +77,7 @@ class Groups extends CommonApi
 	}
 	
 	/**
-	 * 删除用户分组
+	 * Delete group
 	 * 
 	 * @return \EasyWeChat\Support\Collection
 	 */
@@ -82,7 +87,7 @@ class Groups extends CommonApi
 	}
 	
 	/**
-	 * 获取所有分组
+	 * Get all groups
 	 */
 	public function all()
 	{
@@ -90,7 +95,7 @@ class Groups extends CommonApi
 	}
 	
 	/**
-	 * 获取用户分组
+	 * Get the user's group
 	 * 
 	 * @param string $openId
 	 */

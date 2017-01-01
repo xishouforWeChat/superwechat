@@ -4,7 +4,7 @@ namespace Superwechat\Core;
 use Superwechat\Core\AccessToken;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
-use Superchat\Core\Http;
+use Superwechat\Core\Http;
 
 /**
  * CommonApi
