@@ -113,8 +113,8 @@ class AccessToken {
 	public function getAccessTokenFromServer(){
 		$options = [
 			'query'=>[
-				'appid' => $this->appId,
-				'secret' => $this->appSecret,
+				'appid'      => $this->appId,
+				'secret'     => $this->appSecret,
 				'grant_type' => 'client_credential'
 			]
 		];
