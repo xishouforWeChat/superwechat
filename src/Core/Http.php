@@ -67,7 +67,8 @@ class Http {
 	 * 
 	 * @throws HttpException
 	 */
-	public function request($uri, $method = "GET", $options = []){
+	public function request($uri, $method = "GET", $options = [])
+    {
 		$method = strtoupper($method);
 		
 		$options = array_merge(self::$defaults, $options);
@@ -163,7 +164,8 @@ class Http {
 	 * 
 	 * @return HandlerStack $stack
 	 */
-	public function getHanlder(){
+	public function getHanlder()
+    {
 		$stack = HandlerStack::create();
 		foreach ($this->middlewares as $val) {
 			$stack->push($val);

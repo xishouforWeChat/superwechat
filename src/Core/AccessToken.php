@@ -3,7 +3,8 @@ namespace Superwechat\Core;
 
 use Doctrine\Common\Cache\FilesystemCache;
 
-class AccessToken {
+class AccessToken
+{
 	
 	/**
 	 * AppId
@@ -55,7 +56,8 @@ class AccessToken {
 	 * @param string $appSecret
 	 * @param Cache $cache
 	 */
-	public function __construct($appId, $appSecret, Cache $cache = null){
+	public function __construct($appId, $appSecret, Cache $cache = null)
+    {
 		$this->appId = $appId;
 		$this->appSecret = $appSecret;
 		$this->cache = $cache;
@@ -66,7 +68,8 @@ class AccessToken {
 	 * 
 	 * @return FilesystemCache
 	 */
-	public function getCache(){
+	public function getCache()
+    {
 		if (is_null($this->cache)) {
 			return $this->cache = new FilesystemCache(sys_get_temp_dir());
 		}
@@ -78,7 +81,8 @@ class AccessToken {
 	 * 
 	 * @return string
 	 */
-	public function getCacheKey(){
+	public function getCacheKey()
+    {
 		if (is_null($this->cacheKey)) {
 			return $this->prefix.$this->appId;
 		}
@@ -92,7 +96,8 @@ class AccessToken {
 	 * 
 	 * @return $accessToken
 	 */
-	public function getAccessToken($forceRefresh = false){
+	public function getAccessToken($forceRefresh = false)
+    {
 		$cacheKey = $this->getCacheKey();
 		$accessToken = $this->getCache()->fetch($cacheKey);
 		if ($forceRefresh || ! $accessToken) {
@@ -110,7 +115,8 @@ class AccessToken {
 	 * 
 	 * @throws Exception
 	 */
-	public function getAccessTokenFromServer(){
+	public function getAccessTokenFromServer()
+    {
 		$options = [
 			'query'=>[
 				'appid'      => $this->appId,
@@ -133,7 +139,8 @@ class AccessToken {
 	 * 
 	 * @return \Superchat\Core\Http
 	 */
-	public function getHttp(){
+	public function getHttp()
+    {
 		$this->http = new Http();
 		return $this->http;
 	}
@@ -145,7 +152,8 @@ class AccessToken {
 	 * 
 	 * @return $this
 	 */
-	public function setAppId($appId){
+	public function setAppId($appId)
+    {
 		$this->appId = $appId;
 		return $this;
 	}
@@ -155,7 +163,8 @@ class AccessToken {
 	 * 
 	 * @return appid
 	 */
-	public function getAppId(){
+	public function getAppId()
+    {
 		return $this->appId;
 	}
 	
@@ -166,7 +175,8 @@ class AccessToken {
 	 * 
 	 * @return $this
 	 */
-	public function setAppSecret($appSecret){
+	public function setAppSecret($appSecret)
+    {
 		$this->appSecret = $appSecret;
 		return $this;
 	}
@@ -174,20 +184,32 @@ class AccessToken {
 	/**
 	 * @return string 
 	 */
-	public function getAppSecret(){
+	public function getAppSecret()
+    {
 		return $this->appSecret;
 	}
-	
+
+    /**
+     * @param $queryName
+     */
 	public function setQueryName($queryName)
 	{
 		$this->queryName = $queryName;
 	}
-	
-	public function getQueryName(){
+
+    /**
+     * @return string
+     */
+	public function getQueryName()
+    {
 		return $this->queryName;
 	}
-	
-	public function getQueryFields(){
+
+    /**
+     * @return array
+     */
+	public function getQueryFields()
+    {
 		return [$this->queryName => $this->getAccessToken()];
 	}
 	

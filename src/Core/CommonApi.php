@@ -11,7 +11,8 @@ use Superwechat\Core\Http;
  * 
  * @author xuzongchao
  */
-abstract class CommonApi {
+abstract class CommonApi
+{
 	/**
 	 * Http instance
 	 * 
@@ -31,7 +32,8 @@ abstract class CommonApi {
 	 * 
 	 * @param \Superchat\Core\AccessToken $accessToken
 	 */
-	public function __construct(AccessToken $accessToken){
+	public function __construct(AccessToken $accessToken)
+    {
 		$this->setAccessToken($accessToken);
 	}
 	
@@ -40,7 +42,8 @@ abstract class CommonApi {
 	 * 
 	 * @param \Superchat\Core\AccessToken $accessToken
 	 */
-	public function setAccessToken(AccessToken $accessToken){
+	public function setAccessToken(AccessToken $accessToken)
+    {
 		$this->accessToken = $accessToken;
 	}
 	
@@ -99,7 +102,8 @@ abstract class CommonApi {
 	 * 
 	 * @return string
 	 */
-	public function getAccessToken(){
+	public function getAccessToken()
+    {
 		return $this->accessToken;
 	}
 	
@@ -108,7 +112,8 @@ abstract class CommonApi {
 	 * 
 	 * @return Http
 	 */
-	public function getHttp(){
+	public function getHttp()
+    {
 		if (is_null($this->http)) {
 			$this->http = new Http();
 		}
@@ -124,7 +129,8 @@ abstract class CommonApi {
 	 * 
 	 * @param Http $http
 	 */
-	public function setHttp(Http $http){
+	public function setHttp(Http $http)
+    {
 		$this->http = $http;
 	}
 	
