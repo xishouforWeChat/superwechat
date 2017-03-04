@@ -102,7 +102,7 @@ class AccessToken
 		$accessToken = $this->getCache()->fetch($cacheKey);
 		if ($forceRefresh || ! $accessToken) {
 			$token = $this->getAccessTokenFromServer();
-			$this->cache->save($this->getCacheKey(), $token['access_token'], $token['expires_in'] -1200);
+			$this->cache->save($this->getCacheKey(), $token['access_token'], $token['expires_in'] - 1200);
 			return $token['access_token'];
 		}
 		return $accessToken;
