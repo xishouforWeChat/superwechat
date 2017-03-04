@@ -130,6 +130,19 @@ class Http {
     }
     
     /**
+     * Upload 
+     * 
+     * @param string $uri
+     * @param array $param
+     * 
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function upload($uri, $param = [])
+    {
+    	return $this->request($uri, 'POST', ['multipart' => $param]);
+    }
+    
+    /**
      * @param \Psr\Http\Message\ResponseInterface|string $body
      *
      * @return mixed
