@@ -80,7 +80,7 @@ abstract class CommonApi
                 }
 
                 $field = $this->accessToken->getQueryName();
-                $token = $this->accessToken->getAccessToken(true);
+                $token = $this->accessToken->getAccessToken(false);
 			
                 $request = $request->withUri(Uri::withQueryValue($request->getUri(), $field, $token));
                 
