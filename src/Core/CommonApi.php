@@ -53,7 +53,7 @@ abstract class CommonApi
 	 * @param string $method
 	 * @param array  $args
 	 *
-	 * @return \EasyWeChat\Support\Collection
+	 * @return \Superwechat\Lib\Connection
 	 */
 	public function parseJSON($method, array $args)
 	{
@@ -66,6 +66,12 @@ abstract class CommonApi
 		
 		//return new Collection($contents);
 		return $contents;
+	}
+	
+	public function downlad($method, array $args)
+	{
+		$http = $this->getHttp();
+		return call_user_func_array([$http, $method], $args);
 	}
 	
 	/**
