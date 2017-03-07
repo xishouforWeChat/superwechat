@@ -1,7 +1,6 @@
 <?php
 namespace Superwechat\Media;
 use Superwechat\Core\CommonApi;
-use GuzzleHttp\Psr7\Uri;
 
 /**
  * Class Media
@@ -19,6 +18,8 @@ class Media extends CommonApi
 	const API_MATERIAL_GET_MATERIAL = 'https://api.weixin.qq.com/cgi-bin/material/get_material';
 	const API_MATERIAL_DEL_MATERIAL = 'https://api.weixin.qq.com/cgi-bin/material/del_material';
 	const API_MATERIAL_UPDATE_NEWS = 'https://api.weixin.qq.com/cgi-bin/material/update_news';
+	const API_MATERIAL_GET_MATERIALCOUNT = 'https://api.weixin.qq.com/cgi-bin/material/get_materialcount';
+	const API_MATERIAL_BATCHGET_MATERIAL = 'https://api.weixin.qq.com/cgi-bin/material/batchget_material';
 	
 	/**
 	 * Upload Media data
@@ -122,4 +123,27 @@ class Media extends CommonApi
 	{
 		return $this->parseJSON('post', [self::API_MATERIAL_UPDATE_NEWS, $params]);
 	}
+	
+	/**
+	 * Total number of material
+	 * 
+	 * @return \Superwechat\Lib\Connection
+	 */
+	public function getMaterialCount()
+	{
+		return $this->parseJSON('get', [self::API_MATERIAL_GET_MATERIALCOUNT]);
+	}
+	
+	/**
+	 * Get material list
+	 * 
+	 * @param array $params
+	 * 
+	 * @return \Superwechat\Lib\Connection
+	 */
+	public function batchgetMaterial(array $params)
+	{
+		return $this->parseJSON('post', [self::API_MATERIAL_BATCHGET_MATERIAL, $params]);
+	}
+	
 }

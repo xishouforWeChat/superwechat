@@ -58,7 +58,7 @@ class Groups extends CommonApi
 	 * @param string $openid
 	 * @param string $toGroupId
 	 * 
-	 * @return \EasyWeChat\Support\Collection
+	 * @return \Superwechat\Core\Collection
 	 */
 	public function memberUpdate( $openid,  $toGroupId)
 	{
@@ -79,7 +79,7 @@ class Groups extends CommonApi
 	/**
 	 * Delete group
 	 * 
-	 * @return \EasyWeChat\Support\Collection
+	 * @return \Superwechat\Core\Collection
 	 */
 	public function delete($groupId)
 	{

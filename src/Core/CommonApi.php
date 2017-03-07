@@ -5,6 +5,7 @@ use Superwechat\Core\AccessToken;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 use Superwechat\Core\Http;
+use Superwechat\Lib\Connection;
 
 /**
  * CommonApi
@@ -16,7 +17,7 @@ abstract class CommonApi
 	/**
 	 * Http instance
 	 * 
-	 * @var \Superchat\Core\Http;
+	 * @var \Superwechat\Core\Http;
 	 */
 	protected $http;
 	
@@ -30,7 +31,7 @@ abstract class CommonApi
 	/**
 	 * Constructor
 	 * 
-	 * @param \Superchat\Core\AccessToken $accessToken
+	 * @param \Superwechat\Core\AccessToken $accessToken
 	 */
 	public function __construct(AccessToken $accessToken)
     {
@@ -40,7 +41,7 @@ abstract class CommonApi
 	/**
 	 * Set AccessToken
 	 * 
-	 * @param \Superchat\Core\AccessToken $accessToken
+	 * @param \Superwechat\Core\AccessToken $accessToken
 	 */
 	public function setAccessToken(AccessToken $accessToken)
     {
@@ -62,12 +63,26 @@ abstract class CommonApi
 		$contents = $http->parseJSON(call_user_func_array([$http, $method], $args));
 	
 		
-		//$this->checkAndThrow($contents);
+		$this->checkAndThrow($contents);
 		
-		//return new Collection($contents);
+		return new Connection($contents);
 		return $contents;
 	}
 	
+	public function checkAndThrow($contents)
+	{
+		if (array_key_exists('errcode', $contents) && $contents['errcode'] != 0) {
+			exit(Config::getErrorTips($contents['errcode']));
+		}
+	}
+	
+	/**
+	 * 
+	 * @param string $method
+	 * @param array $args
+	 * 
+	 * @return mixed
+	 */
 	public function downlad($method, array $args)
 	{
 		$http = $this->getHttp();

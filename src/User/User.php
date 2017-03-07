@@ -29,8 +29,9 @@ class User extends CommonApi
 	/**
 	 * Get user information
 	 * 
-	 * @param unknown $openId
+	 * @param string $openId
 	 * @param string $lang
+	 * 
 	 */
 	public function getUserInfo($openId, $lang = 'zh_CN')
 	{
@@ -44,7 +45,7 @@ class User extends CommonApi
 	 */
 	public function getUserListInfo(array $user_list)
 	{
-		return $this->parseJSON('json', [self::API_USER_LIST_INFO,['user_list' => $user_list]]);
+		return $this->parseJSON('json', [self::API_USER_LIST_INFO, ['user_list' => $user_list]]);
 	}
 	
 	/**
