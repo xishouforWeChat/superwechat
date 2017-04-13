@@ -11,7 +11,7 @@ use Superwechat\Core\AccessToken;
  */
 class Groups extends CommonApi
 {
-	const API_GROUP_CREATE = "https://api.weixin.qq.com/cgi-bin/groups/create";
+    const API_GROUP_CREATE = "https://api.weixin.qq.com/cgi-bin/groups/create";
 	const API_GROUP_GET = "https://api.weixin.qq.com/cgi-bin/groups/get";
 	const API_GROUP_GETID = "https://api.weixin.qq.com/cgi-bin/groups/getid";
 	const API_GROUP_UPDATE = "https://api.weixin.qq.com/cgi-bin/groups/update";

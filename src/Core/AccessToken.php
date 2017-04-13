@@ -89,13 +89,13 @@ class AccessToken
 		return $this->cacheKey;
 	}
 	
-	/**
-	 * Get access_token
-	 * 
-	 * @param string $forceRefresh is force refresh token
-	 * 
-	 * @return $accessToken
-	 */
+    /**
+     * Get access_token
+     *
+     * @param bool $forceRefresh is force refresh token
+     *
+     * @return false|mixed
+     */
 	public function getAccessToken($forceRefresh = false)
     {
 		$cacheKey = $this->getCacheKey();
@@ -133,12 +133,12 @@ class AccessToken
 		}
 		return $body;
 	}
-	
-	/**
-	 * Get Http
-	 * 
-	 * @return \Superchat\Core\Http
-	 */
+
+    /**
+     * Get Http
+     *
+     * @return Http
+     */
 	public function getHttp()
     {
 		$this->http = new Http();

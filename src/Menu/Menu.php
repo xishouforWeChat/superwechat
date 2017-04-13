@@ -71,8 +71,8 @@ class Menu extends CommonApi
      *
      * @return \Superwechat\Lib\Connection
      */
-	public function delete($menuid = NULL)
-	{
+    public function delete($menuid = NULL)
+    {
 		if ($menuid === NULL) {
 			return $this->parseJSON('post', [self::API_DELETE]);
 		}
