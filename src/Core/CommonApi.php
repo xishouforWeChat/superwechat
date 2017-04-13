@@ -68,7 +68,11 @@ abstract class CommonApi
 		return new Connection($contents);
 		return $contents;
 	}
-	
+
+    /**
+     *
+     * @param $contents
+     */
 	public function checkAndThrow($contents)
 	{
 		if (array_key_exists('errcode', $contents) && $contents['errcode'] != 0) {
@@ -77,6 +81,7 @@ abstract class CommonApi
 	}
 	
 	/**
+     * download
 	 * 
 	 * @param string $method
 	 * @param array $args

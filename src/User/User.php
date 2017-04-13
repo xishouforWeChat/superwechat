@@ -25,46 +25,52 @@ class User extends CommonApi
 	{
 		parent::__construct($accessToken);
 	}
-	
-	/**
-	 * Get user information
-	 * 
-	 * @param string $openId
-	 * @param string $lang
-	 * 
-	 */
+
+    /**
+     * Get user information
+     *
+     * @param string $openId
+     * @param string $lang
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function getUserInfo($openId, $lang = 'zh_CN')
 	{
 		return  $this->parseJSON('get', [self::API_USER_INFO,['openId' => $openId, 'lang' => $lang]]);
 	}
-	
-	/**
-	 * Batch get user information
-	 * 
-	 * @param array $user_list
-	 */
+
+    /**
+     * Batch get user information
+     *
+     * @param array $user_list
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function getUserListInfo(array $user_list)
 	{
 		return $this->parseJSON('json', [self::API_USER_LIST_INFO, ['user_list' => $user_list]]);
 	}
-	
-	/**
-	 * Set the name of the note
-	 * 
-	 * @param string $openId
-	 * @param string $remark
-	 * 
-	 */
+
+    /**
+     * Set the name of the note
+     *
+     * @param string $openId
+     * @param string $remark
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function updateUserMark($openId, $remark)
 	{
 		return $this->parseJSON('json', [self::API_UPDATE_USER_MARK, ['openid' => $openId, 'remark' => $remark]]);
 	}
-	
-	/**
-	 * Get a list of followers
-	 * 
-	 * @param string $nextOpenId
-	 */
+
+    /**
+     * Get a list of followers
+     *
+     * @param string $nextOpenId
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function getUserList($nextOpenId = NULL)
 	{
 		return $this->parseJSON('get', [self::API_GET_USERLIST,['next_openid' => $nextOpenId]]);

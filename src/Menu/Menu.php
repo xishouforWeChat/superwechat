@@ -21,6 +21,7 @@ class Menu extends CommonApi
 	
 	/**
 	 * Request params
+     *
 	 * @var array
 	 */
 	protected $param = array();
@@ -34,10 +35,14 @@ class Menu extends CommonApi
 	{
 		parent::__construct($accessToken);
 	}
-	
-	/**
-	 * Create menu
-	 */
+
+    /**
+     * Create menu
+     *
+     * @param array $param
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function create(array $param)
 	{
 		$this->param = array_merge($this->param, $param);
@@ -48,20 +53,24 @@ class Menu extends CommonApi
 		
 		return $this->parseJSON('json', [self::API_CREATE,$this->param]);
 	}
-	
-	/**
-	 * Get Current Menu
-	 */
+
+    /**
+     * Get Current Menu
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function current()
 	{
 		return $this->parseJSON('get', [self::API_CURRENT]);
 	}
-	
-	/**
-	 * Delete all menu
-	 * 
-	 * @return array
-	 */
+
+    /**
+     * Delete all menu
+     *
+     * @param null $menuid
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function delete($menuid = NULL)
 	{
 		if ($menuid === NULL) {
@@ -69,19 +78,21 @@ class Menu extends CommonApi
 		}
 		return $this->parseJSON('post', [self::API_ADDCONDITION_DELETE,['menuid' => $menuid]]);
 	}
-	
-	/**
-	 * Get all menu
-	 * 
-	 * @return 
-	 */
+
+    /**
+     * Get all menu
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function all(){
 		return $this->parseJSON('get', [self::API_GET]);
 	}
-	
-	/**
-	 * Test
-	 */
+
+    /**
+     * Test
+     *
+     * @return \Superwechat\Lib\Connection
+     */
 	public function test()
 	{
 		return $this->parseJSON('get', [self::API_MENU_TEST, $this->param]);
