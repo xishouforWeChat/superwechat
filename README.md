@@ -63,7 +63,7 @@ if (status == 1) {
 
 ### 我应该用什么工具
 <p align="center">
-<a href="https://www.baidu.com/">
-<img src="http:///mouapp.com/Mou_128.png" alt="EasyWeChat" width="160">
-</a>
+    <a href="https://www.yousails.com">
+      <img src="https://yousails.com/banners/brand.png" width=350>
+    </a>
 </p>
