@@ -62,4 +62,6 @@ if (status == 1) {
 * 轻松导出HTML、PDF
 
 ### 我应该用什么工具
-![Mou icon](http:///mouapp.com/Mou_128.png)
+<div >
+<img  src="http:///mouapp.com/Mou_128.png">
+</div>
