@@ -62,6 +62,8 @@ if (status == 1) {
 * 轻松导出HTML、PDF
 
 ### 我应该用什么工具
-<div >
-<img  src="http:///mouapp.com/Mou_128.png">
-</div>
+<p align="center">
+<a href="https://www.baidu.com/">
+<img src="http:///mouapp.com/Mou_128.png" alt="EasyWeChat" width="160">
+</a>
+</p>
