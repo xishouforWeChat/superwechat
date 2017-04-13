@@ -1,7 +1,7 @@
 ## 安装
 
 ```shell
-    git clone git://github.io
+    git clone git@github.com:igzongchao/superwechat.git
 ```
 
 ## 说明
