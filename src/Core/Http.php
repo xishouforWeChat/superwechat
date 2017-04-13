@@ -81,8 +81,8 @@ class Http {
 		return $response;
 	}
 	
-/**
-     * GET request.
+    /**
+     * GET request
      *
      * @param string $url
      * @param array  $options
@@ -99,7 +99,7 @@ class Http {
     /**
      * POST request.
      *
-     * @param string       $url
+     * @param string  $url
      * @param array|string $options
      *
      * @return ResponseInterface
@@ -141,13 +141,13 @@ class Http {
     {
     	return $this->request($uri, 'POST', ['multipart' => $param]);
     }
-    
+
     /**
-     * @param \Psr\Http\Message\ResponseInterface|string $body
+     * @param $body
      *
-     * @return mixed
+     * @return bool|mixed
      *
-     * @throws \EasyWeChat\Core\Exceptions\HttpException
+     * @throws Exception
      */
     public function parseJSON($body)
     {
@@ -199,12 +199,14 @@ class Http {
 		}
 		return $this->client;
 	}
-	
-	/**
-	 * Seet client
-	 * 
-	 * @param HttpClient $client
-	 */
+
+    /**
+     * Set client
+     *
+     * @param Client $client
+     *
+     * @return $this
+     */
 	public function setClient(HttpClient $client)
 	{
 		$this->client = $client;
