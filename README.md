@@ -36,7 +36,7 @@ composer require xuzongchao/superwechat dev-master
 ## Documentation
 
 - Homepage: http://www.xuzongchao.com
-- Forum: https://forum.easywechat.org
+- Forum: https://forum.xuzongchao.com
 - 微信公众平台文档: https://mp.weixin.qq.com/wiki
 
 ## License
