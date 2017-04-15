@@ -1,6 +1,6 @@
 {
   "name": "xuzongchao/superwechat",
-  "description": "MongoDB driver library",
+  "description": "SDK for Wechat",
   "homepage": "http://www.xuzongchao.com",
   "license": "MIT",
   "authors": [
@@ -18,5 +18,10 @@
   },
   "autoload": {
     "psr-4": { "Superwechat\\": "src/" }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.1.x-dev"
+    }
   }
 }
