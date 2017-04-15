@@ -2,12 +2,8 @@
   "name": "xuzongchao/superwechat",
   "description": "SDK for Wechat",
   "homepage": "http://www.xuzongchao.com",
+  "minimum-stability": "dev",
   "license": "MIT",
-  "authors": [
-    { "name": "Hannes Magnusson", "email": "bjori@mongodb.com" },
-    { "name": "Jeremy Mikola", "email": "jmikola@gmail.com" },
-    { "name": "Derick Rethans", "email": "github@derickrethans.nl" }
-  ],
   "require": {
     "php": ">=5.2.4",
     "guzzlehttp/guzzle": "^6.2",
@@ -18,10 +14,5 @@
   },
   "autoload": {
     "psr-4": { "Superwechat\\": "src/" }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.1.x-dev"
-    }
   }
 }
