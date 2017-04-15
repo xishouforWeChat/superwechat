@@ -3,7 +3,6 @@
   "description": "SDK for Wechat 1.0",
   "homepage": "http://www.xuzongchao.com",
   "version":"1.0",
-  "minimum-stability": "dev",
   "license": "MIT",
   "require": {
     "php": ">=5.2.4",
