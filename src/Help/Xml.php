@@ -1,4 +1,5 @@
 <?php
+namespace Superwechat\Help;
 /**
  * Class Xml
  *
@@ -29,11 +30,41 @@ class Xml
         {
             if (is_numeric($val)){
                 $xml.="<".$key.">".$val."</".$key.">";
+            } else if(is_array($val)) {
+                $xml.="<".$key.">";
+                $xml.=self::getKeyVal($val);
+                $xml.="</".$key.">";
             }else{
                 $xml.="<".$key."><![CDATA[".$val."]]></".$key.">";
             }
         }
         $xml.="</xml>";
+        return $xml;
+    }
+
+    /**
+     * @param $arr
+     * @return string
+     */
+    protected static function getKeyVal($arr)
+    {
+        $xml = '';
+        if (is_array($arr)) {
+            foreach ($arr as $key => $val) {
+                if (is_numeric($key)) {
+                    $key = 'item';
+                }
+                $xml.="<".$key.">";
+                if (is_array($val)) {
+                    $xml.= self::getKeyVal($val);
+                } else if(is_numeric($val)) {
+                    $xml.= $val;
+                } else {
+                    $xml.= "<![CDATA[".$val."]]>";
+                }
+                $xml.="</".$key.">";
+            }
+        }
         return $xml;
     }
 
