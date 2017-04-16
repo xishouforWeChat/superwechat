@@ -1,6 +1,6 @@
 {
   "name": "xuzongchao/superwechat",
-  "description": "SDK for Wechat 1.0",
+  "description": "SDK for Wechat 1.5",
   "homepage": "http://www.xuzongchao.com",
   "license": "MIT",
   "require": {
