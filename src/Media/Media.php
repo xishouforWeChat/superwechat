@@ -1,6 +1,7 @@
 <?php
 namespace Superwechat\Media;
 use Superwechat\Core\CommonApi;
+use Superwechat\Core\AccessToken;
 
 /**
  * Class Media
@@ -20,7 +21,17 @@ class Media extends CommonApi
 	const API_MATERIAL_UPDATE_NEWS = 'https://api.weixin.qq.com/cgi-bin/material/update_news';
 	const API_MATERIAL_GET_MATERIALCOUNT = 'https://api.weixin.qq.com/cgi-bin/material/get_materialcount';
 	const API_MATERIAL_BATCHGET_MATERIAL = 'https://api.weixin.qq.com/cgi-bin/material/batchget_material';
-	
+
+
+    /**
+     * Constructor
+     *
+     * @param AccessToken $accessToken
+     */
+    public function __construct(AccessToken $accessToken)
+    {
+        parent::__construct($accessToken);
+    }
 	/**
 	 * Upload Media data
 	 * 
