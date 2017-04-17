@@ -51,6 +51,8 @@ class Xml
         $xml = '';
         if (is_array($arr)) {
             foreach ($arr as $key => $val) {
+                if (!$val) continue;
+
                 if (is_numeric($key)) {
                     $key = 'item';
                 }
