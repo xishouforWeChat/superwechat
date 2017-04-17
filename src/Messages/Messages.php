@@ -14,15 +14,24 @@ use Superwechat\Help\Xml;
 class Messages
 {
     /**
+     * 认证token
+     *
      * @var
      */
     protected $token = '';
 
     /**
+     * 当前时间
+     *
      * @var int
      */
     protected $nowTime;
 
+    /**
+     * 消息对象
+     *
+     * @var
+     */
     public $msg;
 
     /**
