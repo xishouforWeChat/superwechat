@@ -113,10 +113,10 @@ class Messages
      *
      * @return string
      */
-    public function replyTxtMsg($toUserName, $content)
+    public function replyTxtMsg($content)
     {
         $msgArr = [
-            'ToUserName'    => $toUserName,
+            'ToUserName'    => $this->msg->FromUserName,
             'FromUserName'  => $this->msg->ToUserName,
             'CreateTime'    => $this->nowTime,
             'MsgType'       => 'text',
@@ -134,11 +134,11 @@ class Messages
      *
      * @return string
      */
-    public function replyImgMsg($toUserName, $mediaId)
+    public function replyImgMsg($mediaId)
     {
         $msgArr = [
-            'ToUserName'    => $toUserName,
-            'FromUserName'  => '',
+            'ToUserName'    => $this->msg->FromUserName,
+            'FromUserName'  => $this->msg->ToUserName,
             'CreateTime'    => $this->nowTime,
             'MsgType'       => 'image',
             'Image'         => [
@@ -157,11 +157,11 @@ class Messages
      *
      * @return string
      */
-    public function replyVoiceMsg($toUserName, $mediaId)
+    public function replyVoiceMsg($mediaId)
     {
         $msgArr = [
-            'ToUserName'    => $toUserName,
-            'FromUserName'  => '',
+            'ToUserName'    => $this->msg->FromUserName,
+            'FromUserName'  => $this->msg->ToUserName,
             'CreateTime'    => $this->nowTime,
             'MsgType'       => 'voice',
             'Voice'         => [
@@ -182,11 +182,11 @@ class Messages
      *
      * @return string
      */
-    public function replyVideoMsg($toUserName, $mediaId, $title, $description)
+    public function replyVideoMsg($mediaId, $title, $description)
     {
         $msgArr = [
-            'ToUserName'    => $toUserName,
-            'FromUserName'  => '',
+            'ToUserName'    => $this->msg->FromUserName,
+            'FromUserName'  => $this->msg->ToUserName,
             'CreateTime'    => $this->nowTime,
             'MsgType'       => 'video',
             'Video'         => [
@@ -211,10 +211,10 @@ class Messages
      *
      * @return string
      */
-    public function replyMusicMsg($toUserName, $title = '', $description = '', $musicUrl = '', $hqMusicUrl = '', $thumbMedaId = '')
+    public function replyMusicMsg($title = '', $description = '', $musicUrl = '', $hqMusicUrl = '', $thumbMedaId = '')
     {
         $msgArr = [
-            'ToUserName'    => $toUserName,
+            'ToUserName'    => $this->msg->FromUserName,
             'FromUserName'  => $this->msg->ToUserName,
             'CreateTime'    => $this->nowTime,
             'MsgType'       => 'music',
@@ -236,12 +236,12 @@ class Messages
      * @param $toUserName
      * @param $articles
      */
-    public function replyArticlesMsg($toUserName, $articles)
+    public function replyArticlesMsg($articles)
     {
 
         $articleCount = count($articles);
         $msgArr = [
-            'ToUserName'    => $toUserName,
+            'ToUserName'    => $this->msg->FromUserName,
             'FromUserName'  => $this->msg->ToUserName,
             'CreateTime'    => $this->nowTime,
             'MsgType'       => 'news',
