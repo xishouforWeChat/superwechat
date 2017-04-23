@@ -33,7 +33,7 @@ class Connection implements \ArrayAccess
      * @return void
      */
     public function __set($key, $value){
-    	$this->container[$key] = $val;
+    	$this->container[$key] = $value;
     }
     
     /**
