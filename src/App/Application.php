@@ -1,6 +1,8 @@
 <?php
 
 namespace Superwechat\App;
+use Doctrine\Common\Cache\Cache;
+use Doctrine\Common\Cache\FilesystemCache;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Superwechat\Core\AccessToken;
@@ -18,12 +20,12 @@ class Application extends Container
      * @var array
      */
     protected $providers = [
-        \Superwechat\App\ServiceProviders\UserServiceProvider::class,
-        \Superwechat\App\ServiceProviders\TemplateServiceProvider::class,
-        \Superwechat\App\ServiceProviders\MessageServiceProvider::class,
-        \Superwechat\App\ServiceProviders\GroupServiceProvider::class,
-        \Superwechat\App\ServiceProviders\MediaServiceProvider::class,
-        \Superwechat\App\ServiceProviders\MenuServiceProvider::class,
+        ServiceProviders\UserServiceProvider::class,
+        ServiceProviders\TemplateServiceProvider::class,
+        ServiceProviders\MessageServiceProvider::class,
+        ServiceProviders\GroupServiceProvider::class,
+        ServiceProviders\MediaServiceProvider::class,
+        ServiceProviders\MenuServiceProvider::class,
     ];
 
     /**
@@ -38,8 +40,21 @@ class Application extends Container
             return new Config($values);
         };
 
+        if (!empty($this['config']['cache']) && $this['config']['cache'] instanceof Cache) {
+            $this['cache'] = $this['config']['cache'];
+        } else {
+            $this['cache'] = function () {
+                return new FilesystemCache(sys_get_temp_dir());
+            };
+        }
+
+
         $this['access_token'] = function () {
-            return new AccessToken($this['config']['appId'], $this['config']['appSecret']);
+            return new AccessToken(
+                $this['config']['appId'],
+                $this['config']['appSecret'],
+                $this['config']['cache']
+            );
         };
 
         $this->registerProviders();
