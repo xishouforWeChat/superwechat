@@ -1,10 +1,8 @@
 <?php
 namespace Superwechat\Core;
 
-use Superwechat\Core\AccessToken;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
-use Superwechat\Core\Http;
 use Superwechat\Lib\Connection;
 
 /**
