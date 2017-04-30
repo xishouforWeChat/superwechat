@@ -1,10 +1,10 @@
 <?php
 namespace Superwechat\Core;
 
-use Superwechat\Core\AccessToken;
+use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
-use Superwechat\Core\Http;
+use Psr\Http\Message\ResponseInterface;
 use Superwechat\Lib\Connection;
 
 /**
@@ -121,7 +121,27 @@ abstract class CommonApi
 	public function regsiterMiddleWare()
 	{
 		$this->http->addMiddleWare($this->accessTokenMiddleware());
+		$this->http->addMiddleWare($this->retryMiddleWare());
 	}
+
+    /**
+     * @return callable
+     */
+	public function retryMiddleWare()
+    {
+        return Middleware::retry(function ($retries,RequestInterface $request, ResponseInterface $response = null) {
+            if ($retries <= 2 && $response && $body = $response->getBody()) {
+                if (stripos($body, 'errcode')) {
+                    $field = $this->accessToken->getQueryName();
+                    $token = $this->accessToken->getAccessToken(true);
+                    $request = $request->withUri($newUri = Uri::withQueryValue($request->getUri(), $field, $token));
+
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
 	
 	/**
 	 * Get accessToken
