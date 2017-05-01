@@ -5,8 +5,6 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Psr7\Uri;
-use Psr\Http\Message\RequestInterface;
 use Superwechat\Lib\Connection;
 
 /**
