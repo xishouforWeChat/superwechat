@@ -93,7 +93,7 @@ class Application extends Container
      */
     public function addProvider(ServiceProviderInterface $provider)
     {
-        array_pull($this->providers, $provider);
+        array_push($this->providers, $provider);
         return $this;
     }
 
