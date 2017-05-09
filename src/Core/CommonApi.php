@@ -129,7 +129,7 @@ abstract class CommonApi
      */
 	public function retryMiddleWare()
     {
-        return Middleware::retry(function ($retries,RequestInterface $request, ResponseInterface $response = null) {
+        return Middleware::retry(function ($retries, RequestInterface $request, ResponseInterface $response = null) {
             if ($retries <= 2 && $response && $body = $response->getBody()) {
                 if (stripos($body, 'errcode')) {
                     $field = $this->accessToken->getQueryName();
