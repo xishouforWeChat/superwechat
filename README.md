@@ -22,13 +22,15 @@ composer require xuzongchao/superwechat dev-master
 ```php
 <?php
 
-    $appId = '***************';
-    $appSecret = '*************';
+    $config = [
+        'appId'     => 'Your appId',
+        'appSecret' => 'Your appSecret'
+    ];
+    $app = new \Superwechat\App\Application($config);
     
-    $accessToken = new \Superwechat\Core\AccessToken($appId, $appSecret);
-    
-    $groups = new \Superwechat\Groups\Groups($accessToken);
-    $groupList = $groups->all();
+    //根据openId获取用户信息
+    $openId = '用户 openId';
+    $app->user->getUserInfo($openId);
 ```
 
 更多请参考[http://www.xuzongchao.com](http://www.xuzongchao.com)。
