@@ -55,7 +55,7 @@ class Messages
      */
     public function initParam()
     {
-        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
 
         if (!empty($postStr)) {
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
