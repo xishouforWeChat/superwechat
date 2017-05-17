@@ -131,7 +131,7 @@ abstract class CommonApi
     {
         return Middleware::retry(function ($retries, RequestInterface $request, ResponseInterface $response = null) {
             if ($retries <= 2 && $response && $body = $response->getBody()) {
-                if (stripos($body, 'errcode')) {
+                if (stripos($body, 'errcode') && (stripos($body, '40001') || stripos($body, '42001')) ) {
                     $field = $this->accessToken->getQueryName();
                     $token = $this->accessToken->getAccessToken(true);
                     $request = $request->withUri($newUri = Uri::withQueryValue($request->getUri(), $field, $token));
